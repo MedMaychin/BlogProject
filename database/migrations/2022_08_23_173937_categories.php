@@ -18,7 +18,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('image')->nullable();
 
-            $table->integer('parent')->nullable();
+            $table->integer('parent')->unsigned()->nullable();
             
             $table->timestamps();
             $table->softDeletes();
