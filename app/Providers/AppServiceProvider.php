@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,5 +25,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        $settings = Setting::checkSettings();
+
+        View()->share([
+            'setting' => $settings
+        ]);
     }
 }
